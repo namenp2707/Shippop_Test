@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import product from '../components/Product.vue';
+import cart from '../components/Cart.vue';
 import payment from '../components/Payment.vue';
 
 Vue.use(VueRouter);
@@ -18,6 +19,11 @@ const router = new VueRouter({
       path: '/product',
       name: 'product-list',
       component: product,
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: cart,
     },
     {
       path: '/payment',
