@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
-import hello from '../components/HelloWorld.vue';
+import product from '../components/Product.vue';
+import payment from '../components/Payment.vue';
 
 Vue.use(VueRouter);
 
@@ -14,9 +15,14 @@ const router = new VueRouter({
       component: Home,
     },
     {
-      path: '/hello',
-      name: 'hello',
-      component: hello,
+      path: '/product',
+      name: 'product-list',
+      component: product,
+    },
+    {
+      path: '/payment',
+      name: 'payment',
+      component: payment,
     },
   ],
 });
