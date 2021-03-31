@@ -60,15 +60,87 @@
 
     <h4 style="margin-top: 50px">เลือกขนส่ง</h4>
     <v-divider style="margin-top: 10px"></v-divider>
-    <div style="margin-top: 30px">
+    <v-radio-group>
+      <v-card
+        v-for="(transport, index) in transports"
+        :key="index"
+        style="margin-bottom: 20px"
+        height="150"
+        outlined
+        class="d-flex align-center mb-6"
+        ><v-container>
+          <v-row justify="center">
+            <v-col md="11">
+              <v-row align="center">
+                <v-radio></v-radio>
+                <h1 v-if="transport.text !== null" style="margin-left: 50px">
+                  {{ transport.text }}
+                </h1>
+                <v-img
+                  v-if="transport.src !== null"
+                  :src="transport.src"
+                  max-width="250"
+                  style="margin-left: 25px"
+                />
+                <v-spacer></v-spacer>
+                <h2>THB{{ transport.price }}</h2>
+              </v-row>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-card>
+    </v-radio-group>
 
-    </div>
+    <h4 style="margin-top: 50px">วิธีการชำระ</h4>
+    <v-divider style="margin-top: 10px"></v-divider>
+    <v-radio-group>
+      <v-card
+        v-for="(pay, index) in pays"
+        :key="index"
+        style="margin-bottom: 20px"
+        height="150"
+        outlined
+        class="d-flex align-center mb-6"
+        ><v-container>
+          <v-row justify="center">
+            <v-col md="11">
+              <v-row align="center">
+                <v-radio></v-radio>
+                <v-icon style="margin-left: 50px" large color="black">
+                  {{ pay.src }}
+                </v-icon>
+                <h1 v-if="pay.text !== null" style="margin-left: 20px">
+                  {{ pay.text }}
+                </h1>
+              </v-row>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-card>
+    </v-radio-group>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Payment',
+  data() {
+    return {
+      transports: [
+        {text: 'Free Shipping', src: null, price: '0.00'},
+        {
+          text: null,
+          src:
+            'https://www.igitalgeek.com/uploads/blog-post/large/post-953a96ac6fece8c7eed7c03a89ced2ca.png',
+          price: '40.00',
+        },
+      ],
+      pays: [
+        {text: 'Cash', src: "mdi-cash"},
+        {text: 'Credit/Debit', src: "mdi-credit-card-outline"},
+      ],
+    };
+  },
 };
 </script>
 

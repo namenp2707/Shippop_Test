@@ -1,5 +1,5 @@
 {
-  "name": "ex2-vue",
+  "name": "ex3-vue",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -46,6 +46,6 @@
     "last 2 versions",
     "not dead"
   ],
-  "_id": "ex2-vue@0.1.0",
+  "_id": "ex3-vue@0.1.0",
   "readme": "ERROR: No README data found!"
 }

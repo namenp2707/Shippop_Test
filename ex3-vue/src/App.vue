@@ -1,19 +1,23 @@
 <template>
   <v-app>
     <v-card color="grey lighten-4" tile>
-      <v-app-bar>
+      <v-app-bar height="80">
         <v-container>
           <v-row justify="center">
             <v-col md="10">
               <v-row align="center">
-                <v-btn text style="margin-right: 50px">
+                <v-btn
+                  text
+                  style="margin-right: 50px"
+                  @click="$router.push('/')"
+                >
                   <h1>Book</h1>
                 </v-btn>
                 <v-row>
                   <v-text-field
                     v-if="isSerch"
                     rounded
-                    solo
+                    filled
                     style="margin-top: 30px"
                     append-icon="mdi-magnify"
                   >
@@ -60,6 +64,7 @@
         </v-container>
       </v-app-bar>
     </v-card>
+
     <v-content>
       <v-container>
         <v-row justify="center">
