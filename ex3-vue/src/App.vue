@@ -44,13 +44,28 @@
                   <v-icon v-else>mdi-magnify</v-icon>
                 </v-btn>
 
-                <v-badge bordered overlap content="2" style="margin-left: 20px">
-                  <v-btn icon small>
-                    <v-icon>
-                      mdi-cart-outline
-                    </v-icon>
-                  </v-btn>
-                </v-badge>
+                <v-menu
+                  v-model="menu"
+                  :close-on-content-click="false"
+                  :nudge-width="200"
+                  offset-y
+                >
+                  <template v-slot:activator="{on, attrs}">
+                    <v-badge
+                      bordered
+                      overlap
+                      content="2"
+                      style="margin-left: 20px"
+                    >
+                      <v-btn icon small>
+                        <v-icon v-on="on" v-bind="attrs">
+                          mdi-cart-outline
+                        </v-icon>
+                      </v-btn>
+                    </v-badge>
+                  </template>
+                  <orderCart></orderCart>
+                </v-menu>
 
                 <v-avatar color="indigo" size="36" style="margin-left: 40px">
                   <img
@@ -78,7 +93,11 @@
 </template>
 
 <script>
+import orderCart from './components/OrderCart.vue';
 export default {
+  components: {
+    orderCart,
+  },
   name: 'App',
   data() {
     return {
